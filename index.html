@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食物保鮮管理</title>
+
+    <!-- 連接 CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 網站標題 -->
+    <header>
+        <div class="header-content">
+            <h1> 食物保鮮管理</h1>
+           
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 統計區 -->
+        <section class="statistics">
+
+            <div class="stat-card">
+                <span class="stat-icon">📦</span>
+                <div>
+                    <p>全部食物</p>
+                    <h2 id="totalCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">🟢</span>
+                <div>
+                    <p>正常</p>
+                    <h2 id="normalCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">⚠️</span>
+                <div>
+                    <p>即將到期</p>
+                    <h2 id="warningCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">❌</span>
+                <div>
+                    <p>已過期</p>
+                    <h2 id="expiredCount">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- 新增食物 -->
+        <section class="add-section">
+
+            <h2>➕ 新增食物</h2>
+
+            <div class="form">
+
+                <div class="form-group">
+                    <label for="foodName">品項名稱</label>
+                    <input
+                        type="text"
+                        id="foodName"
+                        placeholder="例如：蘋果"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="foodCategory">食物分類</label>
+
+                    <select id="foodCategory">
+                        <option value="水果">🍎 水果</option>
+                        <option value="蔬菜">🥬 蔬菜</option>
+                        <option value="肉類">🥩 肉類</option>
+                        <option value="海鮮">🐟 海鮮</option>
+                        <option value="乳製品">🥛 乳製品</option>
+                        <option value="鮮食">🍱 鮮食</option>
+                        <option value="麵包">🍞 麵包</option>
+                        <option value="其他">📦 其他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="purchaseDate">購買日期</label>
+
+                    <input
+                        type="date"
+                        id="purchaseDate"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="storageDays">保存天數</label>
+
+                    <input
+                        type="number"
+                        id="storageDays"
+                        min="1"
+                        placeholder="例如：7"
+                    >
+                </div>
+
+            </div>
+
+            <button class="add-button" onclick="addFood()">
+                ＋ 加入食物
+            </button>
+
+        </section>
+
+
+        <!-- 食物列表 -->
+        <section class="food-section">
+
+            <div class="section-title">
+                <h2>📋 我的食物</h2>
+
+                <select id="filterCategory" onchange="displayFoods()">
+                    <option value="全部">全部分類</option>
+                    <option value="水果">水果</option>
+                    <option value="蔬菜">蔬菜</option>
+                    <option value="肉類">肉類</option>
+                    <option value="海鮮">海鮮</option>
+                    <option value="乳製品">乳製品</option>
+                    <option value="鮮食">鮮食</option>
+                    <option value="麵包">麵包</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+
+            <!-- JavaScript 會把食物放到這裡 -->
+            <div id="foodList" class="food-list"></div>
+
+        </section>
+
+    </main>
+
+
+ 
+
+
+    <!-- 連接 JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

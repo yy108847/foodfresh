@@ -1,0 +1,340 @@
+/* =========================
+   基本設定
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        Arial,
+        "Microsoft JhengHei",
+        sans-serif;
+
+    background: #f4f7f5;
+    color: #26352d;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8e4;
+    padding: 30px 20px;
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: auto;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #718078;
+}
+
+
+/* =========================
+   Main
+========================= */
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+
+/* =========================
+   統計卡片
+========================= */
+
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon {
+    font-size: 30px;
+}
+
+.stat-card p {
+    font-size: 14px;
+    color: #718078;
+    margin-bottom: 5px;
+}
+
+.stat-card h2 {
+    font-size: 25px;
+}
+
+
+/* =========================
+   新增食物區
+========================= */
+
+.add-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.add-section h2 {
+    margin-bottom: 20px;
+}
+
+
+/* 表單 */
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.section-title select {
+    padding: 12px;
+
+    border: 1px solid #d6dfda;
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #6aa982;
+}
+
+
+/* 新增按鈕 */
+
+.add-button {
+    margin-top: 20px;
+
+    width: 100%;
+    padding: 13px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #4f8f68;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background: #417a57;
+}
+
+
+/* =========================
+   食物列表
+========================= */
+
+.food-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.section-title select {
+    width: 150px;
+}
+
+
+/* 食物卡片 */
+
+.food-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.food-card {
+    border: 1px solid #e1e7e3;
+    border-radius: 12px;
+    padding: 20px;
+
+    position: relative;
+}
+
+.food-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.category {
+    display: inline-block;
+
+    background: #eef6f0;
+    color: #4f8f68;
+
+    padding: 5px 10px;
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+.food-info {
+    line-height: 1.8;
+    color: #5d6963;
+}
+
+.expiry {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* 狀態 */
+
+.status-normal {
+    color: #3d8658;
+}
+
+.status-warning {
+    color: #d58a20;
+}
+
+.status-expired {
+    color: #c84c4c;
+}
+
+
+/* 刪除按鈕 */
+
+.delete-button {
+    margin-top: 15px;
+
+    border: none;
+    border-radius: 7px;
+
+    padding: 8px 12px;
+
+    background: #f2f2f2;
+    color: #555;
+
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: #e5e5e5;
+}
+
+
+/* 沒有食物 */
+
+.empty {
+    text-align: center;
+    padding: 40px 10px;
+
+    color: #89948e;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #89948e;
+    font-size: 14px;
+}
+
+
+/* =========================
+   手機版
+========================= */
+
+@media (max-width: 700px) {
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .food-list {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .section-title {
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .section-title select {
+        width: 100%;
+    }
+}
