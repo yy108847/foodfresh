@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部品項｜食物保鮮管理</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="all-foods-page">
+
+    <!-- =================================
+         固定背景
+         你原本的全部品項背景放這裡
+         ================================= -->
+
+ 
+
+
+    <!-- =================================
+         右上：回首頁
+         ================================= -->
+
+    <button
+        class="all-control all-home"
+        onclick="location.href='index.html'">
+    </button>
+
+
+    <!-- 右上：說明 -->
+
+    <button
+        class="all-control all-help"
+        onclick="location.href='help.html'">
+    </button>
+
+
+    <!-- 右上：全部品項 -->
+
+    <button
+        class="all-control all-current"
+        onclick="location.href='all-foods.html'">
+    </button>
+
+
+    <!-- =================================
+         只有這個區域可以上下滑
+         ================================= -->
+
+    <div
+        class="all-foods-scroll"
+        id="allFoodsList">
+
+    </div>
+
+
+   <button
+    class="all-add-button"
+    onclick="openAddFood()">
+</button>
+
+<button
+    class="all-prev-button"
+    onclick="location.href='vegetable.html'">
+</button>
+
+<button
+    class="all-next-button"
+    onclick="location.href='index.html'">
+</button>
+</div>
+
+
+<!-- =====================================
+     新增品項視窗
+     ===================================== -->
+
+<div
+    id="addFoodModal"
+    class="add-food-modal">
+
+    <div class="add-food-box">
+
+        <h2>新增品項</h2>
+
+        <label for="addCategory">
+            食物類型
+        </label>
+
+        <select id="addCategory">
+
+            <option value="甜點">甜點</option>
+            <option value="水果">水果</option>
+            <option value="飯類">飯類</option>
+            <option value="麵類">麵類</option>
+            <option value="饅頭">饅頭</option>
+            <option value="包子">包子</option>
+            <option value="海鮮">海鮮</option>
+            <option value="蔬菜">蔬菜</option>
+
+        </select>
+
+
+        <label for="addFoodName">
+            品項名稱
+        </label>
+
+        <input
+            type="text"
+            id="addFoodName"
+            placeholder="例如：蘋果"
+        >
+
+
+        <label for="addFoodDate">
+            日期
+        </label>
+
+        <input
+            type="date"
+            id="addFoodDate"
+        >
+
+
+        <label for="addExpiryDate">
+            到期日
+        </label>
+
+        <input
+            type="date"
+            id="addExpiryDate"
+        >
+
+
+        <div class="add-food-buttons">
+
+            <button onclick="addFoodFromAll()">
+                確認
+            </button>
+
+            <button onclick="closeAddFood()">
+                取消
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

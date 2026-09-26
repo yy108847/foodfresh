@@ -1,340 +1,1135 @@
-/* =========================
-   基本設定
-========================= */
+/* =========================================================
+   共用
+========================================================= */
 
-* {
-    box-sizing: border-box;
+html,
+body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 body {
-    font-family:
-        Arial,
-        "Microsoft JhengHei",
-        sans-serif;
-
-    background: #f4f7f5;
-    color: #26352d;
+    overflow: hidden;
+    background: #000;
 }
 
 
-/* =========================
-   Header
-========================= */
+/* =========================================================
+   首頁
+========================================================= */
 
-header {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8e4;
-    padding: 30px 20px;
+.home-page {
+    position: relative;
+
+    width: min(100vw, 125vh);
+    height: min(80vw, 100vh);
+
+    aspect-ratio: 5 / 4;
+
+    margin: 0 auto;
+
+    overflow: hidden;
 }
 
-.header-content {
-    max-width: 1100px;
-    margin: auto;
-}
+.home-image {
+    position: absolute;
 
-header h1 {
-    font-size: 32px;
-    margin-bottom: 8px;
-}
-
-header p {
-    color: #718078;
-}
-
-
-/* =========================
-   Main
-========================= */
-
-main {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-
-/* =========================
-   統計卡片
-========================= */
-
-.statistics {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 25px;
-}
-
-.stat-card {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-}
-
-.stat-icon {
-    font-size: 30px;
-}
-
-.stat-card p {
-    font-size: 14px;
-    color: #718078;
-    margin-bottom: 5px;
-}
-
-.stat-card h2 {
-    font-size: 25px;
-}
-
-
-/* =========================
-   新增食物區
-========================= */
-
-.add-section {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 25px;
-
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-}
-
-.add-section h2 {
-    margin-bottom: 20px;
-}
-
-
-/* 表單 */
-
-.form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    margin-bottom: 7px;
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group select,
-.section-title select {
-    padding: 12px;
-
-    border: 1px solid #d6dfda;
-    border-radius: 8px;
-
-    font-size: 15px;
-
-    background: white;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #6aa982;
-}
-
-
-/* 新增按鈕 */
-
-.add-button {
-    margin-top: 20px;
+    left: 0;
+    top: 0;
 
     width: 100%;
-    padding: 13px;
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   首頁：8 個食物分類按鈕
+========================================================= */
+
+.home-page .circle-button {
+    position: absolute;
+
+    width: 11%;
+    aspect-ratio: 1 / 1;
+
+    display: block;
+
+    background: rgba(255, 0, 0, 0.25);
+
+    border: 3px solid red;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    z-index: 2000;
+}
+
+
+/* ---------- 包子 ---------- */
+
+.home-page .bao-button {
+    left: 4.9%;
+    top: 20%;
+    width: 15%;
+}
+
+
+/* ---------- 麵類 ---------- */
+
+.home-page .noodles-button {
+    left: 30.8%;
+    top: 17%;
+      width: 12%;
+}
+
+
+/* ---------- 海鮮 ---------- */
+
+.home-page .seafood-button {
+    left: 64.5%;
+    top: 18%;
+    width: 12.5%;
+}
+
+
+/* ---------- 甜點 ---------- */
+
+.home-page .dessert-button {
+    right: 2%;
+    top: 15.5%;
+    width: 14%;
+}
+
+
+/* ---------- 飯類 ---------- */
+
+.home-page .rice-button {
+    left: 14%;
+    top: 43%;
+     width: 11.5%;
+}
+
+
+/* ---------- 饅頭 ---------- */
+
+.home-page .mantou-button {
+    left: 3%;
+    top: 59.5%;
+     width: 14.5%;
+}
+
+
+/* ---------- 蔬菜 ---------- */
+
+.home-page .vegetable-button {
+    right: 6.5%;
+    top: 39.5%;
+     width: 12%;
+}
+
+
+/* ---------- 水果 ---------- */
+
+.home-page .fruit-button {
+    right: 10%;
+    top: 62%;
+     width: 14.5%;
+}
+
+
+/* =========================================================
+   首頁：右上三個按鈕
+========================================================= */
+
+.home-page .home-control {
+    position: absolute;
+
+    width: 8%;
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+}
+
+.home-page .home-control-home {
+    top: 2.5%;
+    right: 17.3%;
+     width: 5%;
+}
+
+.home-page .home-control-help {
+    top: 2.5%;
+    right: 8%;
+     width: 5%;
+}
+
+.home-page .home-control-all {
+    top: 2.5%;
+    right: 1%;
+     width: 5%; 
+}
+
+
+/* =========================================================
+   首頁：上一頁 / 下一頁
+========================================================= */
+
+.home-page .home-prev-button,
+.home-page .home-next-button {
+    position: absolute;
+
+    width: 10%;
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    font-size: 0;
+}
+
+.home-page .home-prev-button {
+    left: 3%;
+    bottom: 2%;
+}
+
+.home-page .home-next-button {
+    right: 3%;
+    bottom: 2%;
+}
+
+
+/* =========================================================
+   首頁：自己輸入食物類型
+========================================================= */
+
+.home-page .custom-category-box {
+    position: absolute;
+
+    left: 50%;
+    bottom: 15%;
+
+    transform: translateX(-50%);
+
+    z-index: 3000;
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+.home-page .custom-category-box input {
+    padding: 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+}
+
+.home-page .custom-category-box button {
+    padding: 10px 16px;
+
+    border-radius: 10px;
 
     border: none;
-    border-radius: 9px;
 
-    background: #4f8f68;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   8 個分類頁
+========================================================= */
+
+.category-page {
+    position: relative;
+
+    width: min(100vw, 125vh);
+    height: min(80vw, 100vh);
+
+    aspect-ratio: 5 / 4;
+
+    overflow: hidden;
+
+    margin: 0 auto;
+}
+
+
+/* =================================
+   分類頁背景圖片
+================================= */
+
+.category-page .category-image {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+}
+
+
+/* =================================
+   右上三個透明按鈕
+================================= */
+
+.category-page .category-control {
+    position: absolute;
+
+    width: 8%;
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+}
+
+
+/* 回首頁 */
+
+.category-page .category-home {
+    top: 2.5%;
+    right: 16%;
+    width: 6%
+}
+
+
+/* 使用教學 */
+
+.category-page .category-help {
+    top: 2.5%;
+    right: 8%;
+    width: 7%
+}
+
+
+/* 全部品項 */
+
+.category-page .category-all {
+    top: 2.5%;
+    right: 1%;
+    width: 5%
+}
+
+
+/* =================================
+   分類頁標題
+================================= */
+
+.category-page h1 {
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    margin: 0;
+
+    padding-top: 16%;
+
+    font-size: 36px;
+}
+
+
+/* =================================
+   分類頁輸入區
+================================= */
+
+.category-page .food-form {
+    position: absolute;
+
+    left: 24%;
+    top: 54.5%;
+
+    width: 52%;
+
+    margin: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    box-sizing: border-box;
+
+    pointer-events: auto;
+}
+
+
+/* =================================
+   標籤
+================================= */
+
+.category-page .food-form label {
+    font-size: 18px;
+
+    color: #000;
+
+    margin: 0 0 8px 0;
+
+    line-height: 1;
+}
+
+/* =================================
+   輸入框
+================================= */
+
+.category-page .food-form input {
+    position: relative;
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 6px 16px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: none;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+
+    margin-bottom: 16px;
+
+    z-index: 1100;
+
+    pointer-events: auto;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   確認按鈕
+================================= */
+
+.category-page .confirm-button {
+    position: relative;
+
+    width: 100%;
+    height: 48px;
+
+    margin-top: 0;
+    padding: 0;
+
+    border: 3px solid red;
+    border-radius: 30px;
+
+    background: rgba(255, 0, 0, 0.35);
+
     color: white;
 
-    font-size: 16px;
+    font-size: 19px;
     font-weight: bold;
 
     cursor: pointer;
+
+    z-index: 99999;
+
+    pointer-events: auto;
+
+    display: block;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    user-select: none;
 }
 
-.add-button:hover {
-    background: #417a57;
-}
+/* =================================
+   分類頁上一頁 / 下一頁
+================================= */
 
+.category-page .category-navigation {
+    position: absolute;
 
-/* =========================
-   食物列表
-========================= */
+    left: -0.5%;
+    right: -0.5%;
 
-.food-section {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
+    bottom: 2%;
 
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-}
-
-.section-title {
     display: flex;
+
     justify-content: space-between;
-    align-items: center;
 
-    margin-bottom: 20px;
+    padding: 0 4%;
+
+    box-sizing: border-box;
+
+    z-index: 3000;
 }
 
-.section-title select {
-    width: 150px;
+
+.category-page .category-navigation button {
+    width: 10.5%;
+
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    font-size: 0;
 }
 
+/* =========================================================
+   使用教學頁
+========================================================= */
 
-/* 食物卡片 */
-
-.food-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-}
-
-.food-card {
-    border: 1px solid #e1e7e3;
-    border-radius: 12px;
-    padding: 20px;
-
+.help-page {
     position: relative;
+
+    width: min(100vw, 125vh);
+    height: min(80vw, 100vh);
+
+    aspect-ratio: 5 / 4;
+
+    margin: 0 auto;
+
+    overflow-y: auto;
+
+    background: #f8efd9;
+
+    padding: 5%;
+
+    box-sizing: border-box;
 }
 
-.food-card h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
+.help-page h1 {
+    text-align: center;
 }
 
-.category {
-    display: inline-block;
+.help-page .help-content {
+    max-width: 800px;
 
-    background: #eef6f0;
-    color: #4f8f68;
-
-    padding: 5px 10px;
-    border-radius: 20px;
-
-    font-size: 13px;
-
-    margin-bottom: 15px;
+    margin: 0 auto;
 }
 
-.food-info {
+.help-page .help-content h2 {
+    margin-top: 25px;
+}
+
+.help-page .help-content p {
     line-height: 1.8;
-    color: #5d6963;
 }
 
-.expiry {
-    margin-top: 12px;
-    font-size: 18px;
-    font-weight: bold;
-}
+.help-page .back-home-button {
+    display: block;
 
+    margin: 30px auto;
 
-/* 狀態 */
-
-.status-normal {
-    color: #3d8658;
-}
-
-.status-warning {
-    color: #d58a20;
-}
-
-.status-expired {
-    color: #c84c4c;
-}
-
-
-/* 刪除按鈕 */
-
-.delete-button {
-    margin-top: 15px;
+    padding: 12px 24px;
 
     border: none;
-    border-radius: 7px;
 
-    padding: 8px 12px;
+    border-radius: 12px;
 
-    background: #f2f2f2;
-    color: #555;
+    background: #0878bd;
+
+    color: white;
 
     cursor: pointer;
 }
 
-.delete-button:hover {
-    background: #e5e5e5;
+
+/* =========================================================
+   全部品項頁
+========================================================= */
+
+.all-foods-page {
+    position: relative;
+
+    width: min(100vw, 125vh);
+    height: min(80vw, 100vh);
+
+    aspect-ratio: 5 / 4;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background-image: url("images/全部品項.png");
+
+    background-size: 100% 100%;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
 }
 
 
-/* 沒有食物 */
+/* =========================================================
+   全部品項：右上三個按鈕
+========================================================= */
 
-.empty {
-    text-align: center;
-    padding: 40px 10px;
+.all-foods-page .all-control {
+    position: absolute;
 
-    color: #89948e;
+    width: 8%;
+
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+}
+
+.all-foods-page .all-home {
+    top: 2.5%;
+    right: 17%;
+    width: 6%
+}
+
+.all-foods-page .all-help {
+    top: 2.5%;
+    right: 8%;
+    width: 6%
+}
+
+.all-foods-page .all-current {
+    top: 2.5%;
+    right: 0%;
+    width: 5%
 }
 
 
-/* =========================
-   Footer
-========================= */
+/* =========================================================
+   全部品項：三列可滑動區
+========================================================= */
 
-footer {
+.all-foods-page .all-foods-scroll {
+    position: absolute;
+
+    left: 16%;
+    right: 16%;
+
+    top: 61%;
+
+    height: 31%;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+    z-index: 100;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+}
+
+.all-foods-page .all-foods-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   全部品項：橢圓＋品項 = 一組
+========================================================= */
+
+.all-foods-page .food-row {
+    width: 100%;
+
+    height: 23%;
+
+    min-height: 23%;
+
+    flex-shrink: 0;
+
+    background-image: url("images/ellipse-row.png");
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: 100% 100%;
+
+    border: none;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        1.7fr
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 28px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   全部品項文字
+========================================================= */
+
+.all-foods-page .food-row-name {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: white;
+
     text-align: center;
+
+    white-space: nowrap;
+}
+
+.all-foods-page .food-row-date {
+    font-size: 15px;
+
+    color: white;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+.all-foods-page .food-row-status {
+    font-size: 16px;
+
+    font-weight: bold;
+
+    color: white;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   全部品項：刪除
+========================================================= */
+
+.all-foods-page .food-delete-button {
+    font-size: 14px;
+
+    color: white;
+
+    background: transparent;
+
+    border: 2px solid white;
+
+    border-radius: 20px;
+
+    padding: 5px 10px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   沒有資料
+========================================================= */
+
+.all-foods-page .no-food-message {
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 18px;
+
+    color: white;
+}
+
+
+/* =========================================================
+   全部品項：＋
+========================================================= */
+
+.all-foods-page .all-add-button {
+    position: absolute;
+
+    width: 5%;
+
+    aspect-ratio: 1 / 1;
+
+    left: 50%;
+
+    bottom: 1%;
+
+    transform: translateX(-50%);
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    font-size: 0;
+}
+
+
+/* =========================================================
+   全部品項：上一頁
+========================================================= */
+
+.all-foods-page .all-prev-button {
+    position: absolute;
+
+    width: 10%;
+
+    aspect-ratio: 1 / 1;
+
+    left: 3%;
+
+    bottom: 2%;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    font-size: 0;
+}
+
+
+/* =========================================================
+   全部品項：下一頁
+========================================================= */
+
+.all-foods-page .all-next-button {
+    position: absolute;
+
+    width: 10%;
+
+    aspect-ratio: 1 / 1;
+
+    right: 3%;
+
+    bottom: 2%;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    font-size: 0;
+}
+
+
+/* =========================================================
+   新增品項視窗
+========================================================= */
+
+.add-food-modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 9999;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.add-food-box {
+    width: 400px;
+
+    max-width: 85%;
+
+    background: white;
+
+    border-radius: 20px;
 
     padding: 30px;
 
-    color: #89948e;
-    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.add-food-box h2 {
+    text-align: center;
+
+    margin-top: 0;
+}
+
+.add-food-box label {
+    display: block;
+
+    margin-top: 12px;
+
+    margin-bottom: 5px;
+}
+
+.add-food-box input,
+.add-food-box select {
+    width: 100%;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+}
+
+.add-food-buttons {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+}
+
+.add-food-buttons button {
+    padding: 10px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    background: #0878bd;
+
+    color: white;
+}
+/* =========================================================
+   使用教學頁：只有圖片
+========================================================= */
+
+.help-page {
+    position: relative;
+
+    width: min(100vw, 125vh);
+    height: min(80vw, 100vh);
+
+    aspect-ratio: 5 / 4;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: #000;
 }
 
 
-/* =========================
-   手機版
-========================= */
+/* =================================
+   使用教學圖片
+================================= */
 
-@media (max-width: 700px) {
+.help-page .help-image {
+    position: absolute;
 
-    .statistics {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    left: 0;
+    top: 0;
 
-    .form {
-        grid-template-columns: 1fr;
-    }
+    width: 100%;
+    height: 100%;
 
-    .food-list {
-        grid-template-columns: 1fr;
-    }
+    object-fit: fill;
 
-    header h1 {
-        font-size: 26px;
-    }
+    z-index: 0;
+}
 
-    .section-title {
-        align-items: flex-start;
-        gap: 10px;
-        flex-direction: column;
-    }
 
-    .section-title select {
-        width: 100%;
-    }
+/* =================================
+   右上三個按鈕
+================================= */
+
+.help-page .help-control {
+    position: absolute;
+
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+}
+
+
+/* 回首頁 */
+
+.help-page .help-home {
+    top: 2.5%;
+    right: 17%;
+
+    width: 6%;
+}
+
+
+/* 使用教學 */
+
+.help-page .help-current {
+    top: 2.5%;
+    right: 8%;
+
+    width: 6%;
+}
+
+
+/* 全部品項 */
+
+.help-page .help-all {
+    top: 2.5%;
+    right: 1%;
+
+    width: 5%;
+}
+
+
+/* =================================
+   上一頁 / 下一頁
+================================= */
+
+.help-page .help-prev-button,
+.help-page .help-next-button {
+    position: absolute;
+
+    width: 10.5%;
+
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255, 0, 0, 0.20);
+
+    border: 2px solid red;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    font-size: 0;
+}
+
+
+.help-page .help-prev-button {
+    left: 4%;
+
+    bottom: 2%;
+}
+
+
+.help-page .help-next-button {
+    right: 4%;
+
+    bottom: 2%;
 }

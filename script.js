@@ -1,441 +1,326 @@
-/* =========================
-   食物資料
-========================= */
+// =========================
+// 食物資料儲存
+// =========================
 
-// 從瀏覽器讀取之前儲存的資料
-let foods = JSON.parse(localStorage.getItem("foods")) || [];
+function saveFood(category) {
 
+    const name = document.getElementById("foodName").value.trim();
+    const date = document.getElementById("foodDate").value;
+    const expiryDate = document.getElementById("expiryDate").value;
 
-/* =========================
-   頁面載入
-========================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // 預設今天日期
-    const today = new Date();
-
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-
-    document.getElementById("purchaseDate").value =
-        `${year}-${month}-${day}`;
-
-    displayFoods();
-
-});
-
-
-/* =========================
-   新增食物
-========================= */
-
-function addFood() {
-
-    const name =
-        document.getElementById("foodName").value.trim();
-
-    const category =
-        document.getElementById("foodCategory").value;
-
-    const purchaseDate =
-        document.getElementById("purchaseDate").value;
-
-    const storageDays =
-        Number(document.getElementById("storageDays").value);
-
-
-    // 檢查資料
-    if (name === "") {
-        alert("請輸入品項名稱！");
+    if (name === "" || date === "" || expiryDate === "") {
+        alert("請把品項名稱、日期、到期日都填寫完整！");
         return;
     }
 
-    if (purchaseDate === "") {
-        alert("請選擇購買日期！");
-        return;
-    }
+    let foods = JSON.parse(localStorage.getItem("foodItems")) || [];
 
-    if (!storageDays || storageDays <= 0) {
-        alert("請輸入正確的保存天數！");
-        return;
-    }
-
-
-    // 計算到期日期
-    const expiryDate = calculateExpiryDate(
-        purchaseDate,
-        storageDays
-    );
-
-
-    // 建立新的食物
-    const food = {
-
-        id: Date.now(),
-
-        name: name,
-
+    const newFood = {
+        id: Date.now().toString(),
         category: category,
-
-        purchaseDate: purchaseDate,
-
-        storageDays: storageDays,
-
+        name: name,
+        date: date,
         expiryDate: expiryDate
-
     };
 
+    foods.push(newFood);
 
-    // 加入陣列
-    foods.push(food);
+    localStorage.setItem("foodItems", JSON.stringify(foods));
 
+    alert("資料已儲存！");
 
-    // 儲存到瀏覽器
-    saveFoods();
-
-
-    // 更新畫面
-    displayFoods();
-
-
-    // 清空輸入
     document.getElementById("foodName").value = "";
-
-    document.getElementById("storageDays").value = "";
-
-
-    alert("食物已成功加入！");
+    document.getElementById("foodDate").value = "";
+    document.getElementById("expiryDate").value = "";
 }
 
 
-/* =========================
-   計算到期日期
-========================= */
+// =========================
+// 計算剩餘天數
+// =========================
 
-function calculateExpiryDate(
-    purchaseDate,
-    storageDays
-) {
-
-    const date = new Date(purchaseDate);
-
-    date.setDate(
-        date.getDate() + storageDays
-    );
-
-
-    const year = date.getFullYear();
-
-    const month =
-        String(date.getMonth() + 1).padStart(2, "0");
-
-    const day =
-        String(date.getDate()).padStart(2, "0");
-
-
-    return `${year}-${month}-${day}`;
-}
-
-
-/* =========================
-   計算剩餘天數
-========================= */
-
-function calculateRemainingDays(expiryDate) {
+function getRemainingDays(expiryDate) {
 
     const today = new Date();
 
     today.setHours(0, 0, 0, 0);
 
-
     const expiry = new Date(expiryDate);
 
     expiry.setHours(0, 0, 0, 0);
 
+    const difference = expiry - today;
 
-    const difference =
-        expiry - today;
-
-
-    const days =
-        Math.ceil(
-            difference / (1000 * 60 * 60 * 24)
-        );
-
-
-    return days;
+    return Math.ceil(
+        difference / (1000 * 60 * 60 * 24)
+    );
 }
 
 
-/* =========================
-   判斷食物狀態
-========================= */
+// =========================
+// 全部品項
+// =========================
 
-function getFoodStatus(days) {
+function displayAllFoods() {
 
-    if (days < 0) {
+    const list = document.getElementById("allFoodsList");
 
-        return {
-            text: "❌ 已過期",
-            className: "status-expired"
-        };
-
+    if (!list) {
+        return;
     }
 
+    const foods =
+        JSON.parse(localStorage.getItem("foodItems")) || [];
 
-    if (days <= 2) {
-
-        return {
-            text: "⚠️ 即將到期",
-            className: "status-warning"
-        };
-
-    }
+    list.innerHTML = "";
 
 
-    return {
-        text: "🟢 保存中",
-        className: "status-normal"
-    };
-}
+    if (foods.length === 0) {
 
-
-/* =========================
-   顯示食物
-========================= */
-
-function displayFoods() {
-
-    const foodList =
-        document.getElementById("foodList");
-
-
-    const filter =
-        document.getElementById("filterCategory").value;
-
-
-    // 清空畫面
-    foodList.innerHTML = "";
-
-
-    // 篩選分類
-    let filteredFoods = foods;
-
-
-    if (filter !== "全部") {
-
-        filteredFoods =
-            foods.filter(
-                food => food.category === filter
-            );
-
-    }
-
-
-    // 沒有食物
-    if (filteredFoods.length === 0) {
-
-        foodList.innerHTML = `
-            <div class="empty">
-                <h3>📭 目前沒有食物</h3>
-                <p>新增食物後會顯示在這裡</p>
+        list.innerHTML = `
+            <div class="no-food-message">
+                目前還沒有儲存的品項
             </div>
         `;
-
-        updateStatistics();
 
         return;
     }
 
 
-    // 產生食物卡片
-    filteredFoods.forEach(function (food) {
+    foods.forEach(function(food) {
 
         const remainingDays =
-            calculateRemainingDays(
-                food.expiryDate
-            );
+            getRemainingDays(food.expiryDate);
 
-
-        const status =
-            getFoodStatus(
-                remainingDays
-            );
-
-
-        let remainingText;
-
+        let status = "";
 
         if (remainingDays < 0) {
 
-            remainingText =
-                `已過期 ${Math.abs(remainingDays)} 天`;
+            status = "已過期";
 
-        }
-        else if (remainingDays === 0) {
+        } else if (remainingDays === 0) {
 
-            remainingText =
-                "今天到期";
+            status = "今天到期";
 
-        }
-        else {
+        } else {
 
-            remainingText =
-                `剩餘 ${remainingDays} 天`;
+            status = "剩 " + remainingDays + " 天";
 
         }
 
 
-        const card =
+        const row =
             document.createElement("div");
 
-        card.className = "food-card";
+        row.className = "food-row";
 
 
-        card.innerHTML = `
+        row.innerHTML = `
 
-            <h3>${food.name}</h3>
-
-            <span class="category">
-                ${food.category}
-            </span>
-
-            <div class="food-info">
-
-                <div>
-                    📅 購買日期：
-                    ${food.purchaseDate}
-                </div>
-
-                <div>
-                    ⏳ 保存時間：
-                    ${food.storageDays} 天
-                </div>
-
-                <div>
-                    📆 到期日期：
-                    ${food.expiryDate}
-                </div>
-
+            <div class="food-row-name">
+                ${food.name}
             </div>
 
-            <div class="expiry ${status.className}">
-                ${status.text}
-                · ${remainingText}
+            <div class="food-row-date">
+                ${food.date} → ${food.expiryDate}
+            </div>
+
+            <div class="food-row-status">
+                ${status}
             </div>
 
             <button
-                class="delete-button"
-                onclick="deleteFood(${food.id})"
-            >
-                🗑️ 刪除
+                class="food-delete-button"
+                onclick="deleteFood('${food.id}')">
+                刪除
             </button>
 
         `;
 
 
-        foodList.appendChild(card);
+        list.appendChild(row);
 
     });
-
-
-    updateStatistics();
 }
 
 
-/* =========================
-   刪除食物
-========================= */
+// =========================
+// 刪除品項
+// =========================
 
 function deleteFood(id) {
 
-    const confirmDelete =
-        confirm("確定要刪除這項食物嗎？");
+    let foods =
+        JSON.parse(localStorage.getItem("foodItems")) || [];
+
+    foods = foods.filter(function(food) {
+        return String(food.id) !== String(id);
+    });
+
+    localStorage.setItem(
+        "foodItems",
+        JSON.stringify(foods)
+    );
+
+    displayAllFoods();
+}
 
 
-    if (!confirmDelete) {
+// =========================
+// 開啟新增視窗
+// =========================
+
+function openAddFood() {
+
+    const modal =
+        document.getElementById("addFoodModal");
+
+    if (!modal) {
+        return;
+    }
+
+    modal.style.display = "flex";
+
+
+    const today = new Date();
+
+    const todayString =
+        today.getFullYear() +
+        "-" +
+        String(today.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(today.getDate()).padStart(2, "0");
+
+
+    const dateInput =
+        document.getElementById("addFoodDate");
+
+    if (dateInput) {
+        dateInput.value = todayString;
+    }
+}
+
+
+// =========================
+// 關閉新增視窗
+// =========================
+
+function closeAddFood() {
+
+    const modal =
+        document.getElementById("addFoodModal");
+
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+// =========================
+// 從「全部品項」新增
+// =========================
+
+function addFoodFromAll() {
+
+    const category =
+        document.getElementById("addCategory").value;
+
+    const name =
+        document.getElementById("addFoodName").value.trim();
+
+    const date =
+        document.getElementById("addFoodDate").value;
+
+    const expiryDate =
+        document.getElementById("addExpiryDate").value;
+
+
+    if (
+        name === "" ||
+        date === "" ||
+        expiryDate === ""
+    ) {
+        alert("請把資料填寫完整");
         return;
     }
 
 
-    foods =
-        foods.filter(
-            food => food.id !== id
-        );
+    let foods =
+        JSON.parse(localStorage.getItem("foodItems")) || [];
 
 
-    saveFoods();
+    const newFood = {
 
-    displayFoods();
-}
+        id: Date.now().toString(),
+
+        category: category,
+
+        name: name,
+
+        date: date,
+
+        expiryDate: expiryDate
+    };
 
 
-/* =========================
-   儲存資料
-========================= */
+    foods.push(newFood);
 
-function saveFoods() {
 
     localStorage.setItem(
-        "foods",
+        "foodItems",
         JSON.stringify(foods)
     );
 
+
+    document.getElementById("addFoodName").value = "";
+
+    document.getElementById("addFoodDate").value = "";
+
+    document.getElementById("addExpiryDate").value = "";
+
+
+    closeAddFood();
+
+    displayAllFoods();
 }
 
 
-/* =========================
-   統計資料
-========================= */
+// =========================
+// 頁面載入
+// =========================
 
-function updateStatistics() {
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-    let normal = 0;
+        // 分類頁：日期自動設定今天
+        const dateInput =
+            document.getElementById("foodDate");
 
-    let warning = 0;
+        if (dateInput) {
 
-    let expired = 0;
+            const today = new Date();
 
+            const year =
+                today.getFullYear();
 
-    foods.forEach(function (food) {
+            const month =
+                String(
+                    today.getMonth() + 1
+                ).padStart(2, "0");
 
-        const days =
-            calculateRemainingDays(
-                food.expiryDate
-            );
+            const day =
+                String(
+                    today.getDate()
+                ).padStart(2, "0");
 
-
-        if (days < 0) {
-
-            expired++;
-
-        }
-        else if (days <= 2) {
-
-            warning++;
-
-        }
-        else {
-
-            normal++;
-
+            dateInput.value =
+                `${year}-${month}-${day}`;
         }
 
-    });
 
+        // 全部品項頁：載入資料
+        displayAllFoods();
 
-    document.getElementById("totalCount").textContent =
-        foods.length;
-
-    document.getElementById("normalCount").textContent =
-        normal;
-
-    document.getElementById("warningCount").textContent =
-        warning;
-
-    document.getElementById("expiredCount").textContent =
-        expired;
-
-}
+    }
+);

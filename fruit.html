@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果｜食物保鮮管理</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="category-page">
+    <img src="images/水果.png" class="category-image">
+
+    <button class="category-control category-home"
+            onclick="location.href='index.html'">
+    </button>
+
+    <button class="category-control category-help"
+            onclick="location.href='help.html'">
+    </button>
+
+    <button class="category-control category-all"
+            onclick="location.href='all-foods.html'">
+    </button>
+
+ 
+    <div class="food-form">
+
+        <label for="foodName">品項名稱</label>
+        <input type="text" id="foodName" placeholder="例如：蘋果">
+
+        <label for="foodDate">日期</label>
+        <input type="date" id="foodDate">
+
+        <label for="expiryDate">到期日</label>
+        <input type="date" id="expiryDate">
+
+        <button class="confirm-button"
+                onclick="saveFood('水果')">
+            確認
+        </button>
+
+    </div>
+
+    <div class="category-navigation">
+        <button onclick="location.href='dessert.html'">←</button>
+        <button onclick="location.href='rice.html'">→</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
