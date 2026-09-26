@@ -1,3 +1,4 @@
+```css
 /* =========================================================
    共用
 ========================================================= */
@@ -50,6 +51,7 @@ body {
 
 /* =========================================================
    首頁：8 個食物分類按鈕
+   完全透明，但仍然可以點擊
 ========================================================= */
 
 .home-page .circle-button {
@@ -60,9 +62,9 @@ body {
 
     display: block;
 
-    background: rgba(255, 0, 0, 0.25);
+    background: transparent;
 
-    border: 3px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -88,7 +90,7 @@ body {
 .home-page .noodles-button {
     left: 30.8%;
     top: 17%;
-      width: 12%;
+    width: 12%;
 }
 
 
@@ -115,7 +117,7 @@ body {
 .home-page .rice-button {
     left: 14%;
     top: 43%;
-     width: 11.5%;
+    width: 11.5%;
 }
 
 
@@ -124,7 +126,7 @@ body {
 .home-page .mantou-button {
     left: 3%;
     top: 59.5%;
-     width: 14.5%;
+    width: 14.5%;
 }
 
 
@@ -133,7 +135,7 @@ body {
 .home-page .vegetable-button {
     right: 6.5%;
     top: 39.5%;
-     width: 12%;
+    width: 12%;
 }
 
 
@@ -142,7 +144,7 @@ body {
 .home-page .fruit-button {
     right: 10%;
     top: 62%;
-     width: 14.5%;
+    width: 14.5%;
 }
 
 
@@ -156,9 +158,9 @@ body {
     width: 8%;
     aspect-ratio: 1 / 1;
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -172,19 +174,19 @@ body {
 .home-page .home-control-home {
     top: 2.5%;
     right: 17.3%;
-     width: 5%;
+    width: 5%;
 }
 
 .home-page .home-control-help {
     top: 2.5%;
     right: 8%;
-     width: 5%;
+    width: 5%;
 }
 
 .home-page .home-control-all {
     top: 2.5%;
     right: 1%;
-     width: 5%; 
+    width: 5%;
 }
 
 
@@ -199,9 +201,9 @@ body {
     width: 10%;
     aspect-ratio: 1 / 1;
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -262,6 +264,8 @@ body {
     border: none;
 
     cursor: pointer;
+
+    background: transparent;
 }
 
 
@@ -312,9 +316,9 @@ body {
     width: 8%;
     aspect-ratio: 1 / 1;
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -331,7 +335,7 @@ body {
 .category-page .category-home {
     top: 2.5%;
     right: 16%;
-    width: 6%
+    width: 6%;
 }
 
 
@@ -340,7 +344,7 @@ body {
 .category-page .category-help {
     top: 2.5%;
     right: 8%;
-    width: 7%
+    width: 7%;
 }
 
 
@@ -349,7 +353,7 @@ body {
 .category-page .category-all {
     top: 2.5%;
     right: 1%;
-    width: 5%
+    width: 5%;
 }
 
 
@@ -414,6 +418,7 @@ body {
     line-height: 1;
 }
 
+
 /* =================================
    輸入框
 ================================= */
@@ -449,6 +454,7 @@ body {
 
 /* =================================
    確認按鈕
+   完全透明，但仍然可以點
 ================================= */
 
 .category-page .confirm-button {
@@ -460,12 +466,13 @@ body {
     margin-top: 0;
     padding: 0;
 
-    border: 3px solid red;
+    border: none;
+
     border-radius: 30px;
 
-    background: rgba(255, 0, 0, 0.35);
+    background: transparent;
 
-    color: white;
+    color: transparent;
 
     font-size: 19px;
     font-weight: bold;
@@ -484,6 +491,7 @@ body {
 
     user-select: none;
 }
+
 
 /* =================================
    分類頁上一頁 / 下一頁
@@ -514,9 +522,9 @@ body {
 
     aspect-ratio: 1 / 1;
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -526,6 +534,7 @@ body {
 
     font-size: 0;
 }
+
 
 /* =========================================================
    使用教學頁
@@ -541,49 +550,127 @@ body {
 
     margin: 0 auto;
 
-    overflow-y: auto;
+    overflow: hidden;
 
-    background: #f8efd9;
-
-    padding: 5%;
+    padding: 0;
 
     box-sizing: border-box;
+
+    background: #000;
 }
 
-.help-page h1 {
-    text-align: center;
+
+/* =================================
+   使用教學圖片
+================================= */
+
+.help-page .help-image {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
 }
 
-.help-page .help-content {
-    max-width: 800px;
 
-    margin: 0 auto;
-}
+/* =================================
+   右上三個按鈕
+================================= */
 
-.help-page .help-content h2 {
-    margin-top: 25px;
-}
+.help-page .help-control {
+    position: absolute;
 
-.help-page .help-content p {
-    line-height: 1.8;
-}
+    aspect-ratio: 1 / 1;
 
-.help-page .back-home-button {
-    display: block;
-
-    margin: 30px auto;
-
-    padding: 12px 24px;
+    background: transparent;
 
     border: none;
 
-    border-radius: 12px;
+    border-radius: 50%;
 
-    background: #0878bd;
-
-    color: white;
+    padding: 0;
 
     cursor: pointer;
+
+    z-index: 3000;
+}
+
+
+/* 回首頁 */
+
+.help-page .help-home {
+    top: 2.5%;
+    right: 17%;
+
+    width: 6%;
+}
+
+
+/* 使用教學 */
+
+.help-page .help-current {
+    top: 2.5%;
+    right: 8%;
+
+    width: 6%;
+}
+
+
+/* 全部品項 */
+
+.help-page .help-all {
+    top: 2.5%;
+    right: 1%;
+
+    width: 5%;
+}
+
+
+/* =================================
+   上一頁 / 下一頁
+================================= */
+
+.help-page .help-prev-button,
+.help-page .help-next-button {
+    position: absolute;
+
+    width: 10.5%;
+
+    aspect-ratio: 1 / 1;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    font-size: 0;
+}
+
+
+.help-page .help-prev-button {
+    left: 4%;
+
+    bottom: 2%;
+}
+
+
+.help-page .help-next-button {
+    right: 4%;
+
+    bottom: 2%;
 }
 
 
@@ -624,9 +711,9 @@ body {
 
     aspect-ratio: 1 / 1;
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -640,19 +727,19 @@ body {
 .all-foods-page .all-home {
     top: 2.5%;
     right: 17%;
-    width: 6%
+    width: 6%;
 }
 
 .all-foods-page .all-help {
     top: 2.5%;
     right: 8%;
-    width: 6%
+    width: 6%;
 }
 
 .all-foods-page .all-current {
     top: 2.5%;
     right: 0%;
-    width: 5%
+    width: 5%;
 }
 
 
@@ -833,9 +920,9 @@ body {
 
     transform: translateX(-50%);
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -864,9 +951,9 @@ body {
 
     bottom: 2%;
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -895,9 +982,9 @@ body {
 
     bottom: 2%;
 
-    background: rgba(255, 0, 0, 0.20);
+    background: transparent;
 
-    border: 2px solid red;
+    border: none;
 
     border-radius: 50%;
 
@@ -996,140 +1083,4 @@ body {
     background: #0878bd;
 
     color: white;
-}
-/* =========================================================
-   使用教學頁：只有圖片
-========================================================= */
-
-.help-page {
-    position: relative;
-
-    width: min(100vw, 125vh);
-    height: min(80vw, 100vh);
-
-    aspect-ratio: 5 / 4;
-
-    margin: 0 auto;
-
-    overflow: hidden;
-
-    padding: 0;
-
-    box-sizing: border-box;
-
-    background: #000;
-}
-
-
-/* =================================
-   使用教學圖片
-================================= */
-
-.help-page .help-image {
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: fill;
-
-    z-index: 0;
-}
-
-
-/* =================================
-   右上三個按鈕
-================================= */
-
-.help-page .help-control {
-    position: absolute;
-
-    aspect-ratio: 1 / 1;
-
-    background: rgba(255, 0, 0, 0.20);
-
-    border: 2px solid red;
-
-    border-radius: 50%;
-
-    padding: 0;
-
-    cursor: pointer;
-
-    z-index: 3000;
-}
-
-
-/* 回首頁 */
-
-.help-page .help-home {
-    top: 2.5%;
-    right: 17%;
-
-    width: 6%;
-}
-
-
-/* 使用教學 */
-
-.help-page .help-current {
-    top: 2.5%;
-    right: 8%;
-
-    width: 6%;
-}
-
-
-/* 全部品項 */
-
-.help-page .help-all {
-    top: 2.5%;
-    right: 1%;
-
-    width: 5%;
-}
-
-
-/* =================================
-   上一頁 / 下一頁
-================================= */
-
-.help-page .help-prev-button,
-.help-page .help-next-button {
-    position: absolute;
-
-    width: 10.5%;
-
-    aspect-ratio: 1 / 1;
-
-    background: rgba(255, 0, 0, 0.20);
-
-    border: 2px solid red;
-
-    border-radius: 50%;
-
-    padding: 0;
-
-    cursor: pointer;
-
-    z-index: 3000;
-
-    font-size: 0;
-}
-
-
-.help-page .help-prev-button {
-    left: 4%;
-
-    bottom: 2%;
-}
-
-
-.help-page .help-next-button {
-    right: 4%;
-
-    bottom: 2%;
 }
