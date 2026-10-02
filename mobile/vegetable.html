@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>蔬菜</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="mobile-category">
+
+    <img src="../phoneimages/手機蔬菜.png"
+         alt="蔬菜"
+         class="mobile-category-image">
+
+
+    <a href="index.html"
+       class="mobile-category-control mobile-category-home">
+    </a>
+
+    <a href="help.html"
+       class="mobile-category-control mobile-category-help">
+    </a>
+
+    <a href="all-foods.html"
+       class="mobile-category-control mobile-category-all">
+    </a>
+
+
+    <div class="mobile-food-form">
+
+        <label>品項名稱</label>
+
+        <input type="text"
+               id="foodName"
+               placeholder="輸入品項名稱">
+
+        <label>日期</label>
+
+        <input type="date"
+               id="foodDate">
+
+        <label>到期日</label>
+
+        <input type="date"
+               id="expiryDate">
+
+        <button class="mobile-confirm-button"
+                onclick="saveMobileFood('蔬菜')">
+            確認
+        </button>
+
+    </div>
+
+
+    <a href="seafood.html"
+       class="mobile-category-prev">
+    </a>
+
+    <a href="index.html"
+       class="mobile-category-next">
+    </a>
+
+</div>
+
+<script src="mobile-script.js"></script>
+
+</body>
+</html>
