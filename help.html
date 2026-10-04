@@ -3,65 +3,66 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="device-detect.js"></script>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>使用教學</title>
-<script src="device-detect.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="help-page">
+<div class="mobile-help">
 
-    <!-- 使用教學圖片 -->
-    <img
-        src="images/使用教學.png"
-        class="help-image"
-        alt="使用教學"
-    >
+    <!-- =========================
+         手機版使用教學背景
+    ========================== -->
+
+    <img src="../phoneimages/手機使用教學.png"
+         alt="使用教學"
+         class="mobile-help-image">
 
 
-    <!-- =================================
+    <!-- =========================
          右上三個按鈕
-    ================================= -->
+    ========================== -->
 
-    <button
-        class="help-control help-home"
-        onclick="location.href='index.html'"
-        aria-label="回首頁">
-    </button>
+    <!-- 回首頁 -->
+    <a href="index.html"
+       class="mobile-help-control mobile-help-home">
+    </a>
 
-    <button
-        class="help-control help-current"
-        onclick="location.href='help.html'"
-        aria-label="使用教學">
-    </button>
+    <!-- 使用教學 -->
+    <a href="help.html"
+       class="mobile-help-control mobile-help-current">
+    </a>
 
-    <button
-        class="help-control help-all"
-        onclick="location.href='all-foods.html'"
-        aria-label="全部品項">
-    </button>
+    <!-- 全部品項 -->
+    <a href="all-foods.html"
+       class="mobile-help-control mobile-help-all">
+    </a>
 
 
-    <!-- =================================
+    <!-- =========================
          上一頁 / 下一頁
-    ================================= -->
+    ========================== -->
 
-    <button
-        class="help-prev-button"
-        onclick="location.href='all-foods.html'"
-        aria-label="上一頁">
-    </button>
 
-    <button
-        class="help-next-button"
-        onclick="location.href='index.html'"
-        aria-label="下一頁">
-    </button>
+
+<!-- 上一頁 → 回首頁 -->
+<a href="index.html"
+   class="mobile-help-prev">
+</a>
+
+<!-- 下一頁 → 八個品項的第一頁：甜點 -->
+<a href="dessert.html"
+   class="mobile-help-next">
+</a>
 
 </div>
 
 </body>
+
 </html>

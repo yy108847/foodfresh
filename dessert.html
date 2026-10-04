@@ -3,88 +3,96 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>甜點｜食物保鮮管理</title>
-    <script src="device-detect.js"></script>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>甜點</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="category-page">
-        <img src="images/甜點.png" class="category-image">
+<div class="mobile-category">
 
-        <!-- 右上角三個按鈕 -->
+    <!-- =========================
+         手機甜點背景
+    ========================== -->
 
-        <button class="category-control category-home"
-                onclick="location.href='index.html'">
+    <img src="../phoneimages/手機甜點.png"
+         alt="甜點"
+         class="mobile-category-image">
+
+
+    <!-- =========================
+         右上三個按鈕
+    ========================== -->
+
+    <!-- 回首頁 -->
+    <a href="index.html"
+       class="mobile-category-control mobile-category-home">
+    </a>
+
+    <!-- 使用教學 -->
+    <a href="help.html"
+       class="mobile-category-control mobile-category-help">
+    </a>
+
+    <!-- 全部品項 -->
+    <a href="all-foods.html"
+       class="mobile-category-control mobile-category-all">
+    </a>
+
+
+    <!-- =========================
+         品項輸入
+    ========================== -->
+
+    <div class="mobile-food-form">
+
+        <label>品項名稱</label>
+
+        <input type="text"
+               id="foodName"
+               placeholder="輸入品項名稱">
+
+
+        <label>日期</label>
+
+        <input type="date"
+               id="foodDate">
+
+
+        <label>到期日</label>
+
+        <input type="date"
+               id="expiryDate">
+
+
+        <button class="mobile-confirm-button"
+                onclick="saveMobileFood('甜點')">
+            確認
         </button>
-
-        <button class="category-control category-help"
-                onclick="location.href='help.html'">
-        </button>
-
-        <button class="category-control category-all"
-                onclick="location.href='all-foods.html'">
-        </button>
-
-
-        <!-- 主要內容 -->
-
-     
-        <div class="food-form">
-
-            <label for="foodName">品項名稱</label>
-
-            <input
-                type="text"
-                id="foodName"
-                placeholder="例如：蛋糕"
-            >
-
-            <label for="foodDate">日期</label>
-
-            <input
-                type="date"
-                id="foodDate"
-            >
-
-            <label for="expiryDate">到期日</label>
-
-            <input
-                type="date"
-                id="expiryDate"
-            >
-
-            <button
-                class="confirm-button"
-                onclick="saveFood('甜點')">
-                確認
-            </button>
-
-        </div>
-
-
-        <!-- 上一頁 / 下一頁 -->
-
-        <div class="category-navigation">
-
-            <button onclick="location.href='index.html'">
-                ←
-            </button>
-
-            <button onclick="location.href='fruit.html'">
-                →
-            </button>
-
-        </div>
 
     </div>
 
 
-    <script src="script.js"></script>
+    <!-- =========================
+         上一頁 / 下一頁
+    ========================== -->
+
+    <a href="index.html"
+       class="mobile-category-prev">
+    </a>
+
+    <a href="fruit.html"
+       class="mobile-category-next">
+    </a>
+
+</div>
+
+<script src="mobile-script.js"></script>
 
 </body>
 

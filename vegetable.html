@@ -1,57 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>蔬菜｜食物保鮮管理</title>
-    <script src="device-detect.js"></script>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>蔬菜</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="category-page">
-    <img src="images/蔬菜.png" class="category-image">
+<div class="mobile-category">
 
-    <button class="category-control category-home"
-            onclick="location.href='index.html'">
-    </button>
-
-    <button class="category-control category-help"
-            onclick="location.href='help.html'">
-    </button>
-
-    <button class="category-control category-all"
-            onclick="location.href='all-foods.html'">
-    </button>
+    <img src="../phoneimages/手機蔬菜.png"
+         alt="蔬菜"
+         class="mobile-category-image">
 
 
-    <div class="food-form">
+    <a href="index.html"
+       class="mobile-category-control mobile-category-home">
+    </a>
 
-        <label for="foodName">品項名稱</label>
-        <input type="text" id="foodName" placeholder="例如：高麗菜">
+    <a href="help.html"
+       class="mobile-category-control mobile-category-help">
+    </a>
 
-        <label for="foodDate">日期</label>
-        <input type="date" id="foodDate">
+    <a href="all-foods.html"
+       class="mobile-category-control mobile-category-all">
+    </a>
 
-        <label for="expiryDate">到期日</label>
-        <input type="date" id="expiryDate">
 
-        <button class="confirm-button"
-                onclick="saveFood('蔬菜')">
+    <div class="mobile-food-form">
+
+        <label>品項名稱</label>
+
+        <input type="text"
+               id="foodName"
+               placeholder="輸入品項名稱">
+
+        <label>日期</label>
+
+        <input type="date"
+               id="foodDate">
+
+        <label>到期日</label>
+
+        <input type="date"
+               id="expiryDate">
+
+        <button class="mobile-confirm-button"
+                onclick="saveMobileFood('蔬菜')">
             確認
         </button>
 
     </div>
 
-    <div class="category-navigation">
-        <button onclick="location.href='seafood.html'">←</button>
-        <button onclick="location.href='index.html'">→</button>
-    </div>
+
+    <a href="seafood.html"
+       class="mobile-category-prev">
+    </a>
+
+    <a href="index.html"
+       class="mobile-category-next">
+    </a>
 
 </div>
 
-<script src="script.js"></script>
+<script src="mobile-script.js"></script>
 
 </body>
 </html>

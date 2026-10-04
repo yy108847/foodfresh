@@ -7,17 +7,22 @@
 (function () {
 
     /* 如果目前已經在 mobile 資料夾，就不要再跳轉 */
+
     if (window.location.pathname.includes("/mobile/")) {
         return;
     }
 
+
     /* 判斷目前頁面 */
+
     const page =
         window.location.pathname
             .split("/")
             .pop();
 
+
     /* 頁面對應 */
+
     const mobilePages = {
 
         "index.html": "mobile/index.html",
@@ -44,7 +49,9 @@
 
     };
 
+
     /* 只有手機才跳到 mobile */
+
     if (
         window.innerWidth <= 768 &&
         mobilePages[page]

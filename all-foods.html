@@ -3,96 +3,107 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="device-detect.js"></script>
-    <title>全部品項｜食物保鮮管理</title>
-<script src="device-detect.js"></script>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>全部品項</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="all-foods-page">
+<div class="mobile-all-foods">
 
-    <!-- =================================
-         固定背景
-         你原本的全部品項背景放這裡
-         ================================= -->
+    <!-- =========================
+         背景
+    ========================== -->
 
- 
-
-
-    <!-- =================================
-         右上：回首頁
-         ================================= -->
-
-    <button
-        class="all-control all-home"
-        onclick="location.href='index.html'">
-    </button>
+    <img src="../phoneimages/手機全部品項.png"
+         alt="全部品項"
+         class="mobile-all-foods-image">
 
 
-    <!-- 右上：說明 -->
+    <!-- =========================
+         右上三個按鈕
+    ========================== -->
 
-    <button
-        class="all-control all-help"
-        onclick="location.href='help.html'">
-    </button>
+    <!-- 回首頁 -->
+    <a href="index.html"
+       class="mobile-all-control mobile-all-home">
+    </a>
+
+    <!-- 使用教學 -->
+    <a href="help.html"
+       class="mobile-all-control mobile-all-help">
+    </a>
+
+    <!-- 全部品項 -->
+    <a href="all-foods.html"
+       class="mobile-all-control mobile-all-current">
+    </a>
 
 
-    <!-- 右上：全部品項 -->
+    <!-- =========================
+         品項清單
+    ========================== -->
 
-    <button
-        class="all-control all-current"
-        onclick="location.href='all-foods.html'">
-    </button>
+    <div class="mobile-food-list"
+         id="foodList">
 
-
-    <!-- =================================
-         只有這個區域可以上下滑
-         ================================= -->
-
-    <div
-        class="all-foods-scroll"
-        id="allFoodsList">
+        <!-- JavaScript 會把品項放到這裡 -->
 
     </div>
 
 
-   <button
-    class="all-add-button"
-    onclick="openAddFood()">
-</button>
+    <!-- =========================
+         新增品項
+    ========================== -->
 
-<button
-    class="all-prev-button"
-    onclick="location.href='vegetable.html'">
-</button>
+    <button class="mobile-all-add"
+            onclick="openMobileAddFood()">
+    
+    </button>
 
-<button
-    class="all-next-button"
-    onclick="location.href='index.html'">
-</button>
+
+    <!-- =========================
+         上一頁 / 下一頁
+    ========================== -->
+
+    <a href="help.html"
+       class="mobile-all-prev">
+    </a>
+
+    <a href="dessert.html"
+       class="mobile-all-next">
+    </a>
+
 </div>
 
 
-<!-- =====================================
+<!-- =========================
      新增品項視窗
-     ===================================== -->
+========================== -->
 
-<div
-    id="addFoodModal"
-    class="add-food-modal">
+<div class="mobile-add-modal"
+     id="mobileAddModal">
 
-    <div class="add-food-box">
+    <div class="mobile-add-box">
 
         <h2>新增品項</h2>
 
-        <label for="addCategory">
-            食物類型
-        </label>
 
-        <select id="addCategory">
+        <label>品項名稱</label>
+
+        <input type="text"
+               id="mobileAddName"
+               placeholder="輸入品項名稱">
+
+
+        <label>食物類型</label>
+
+        <select id="mobileAddCategory">
 
             <option value="甜點">甜點</option>
             <option value="水果">水果</option>
@@ -106,45 +117,26 @@
         </select>
 
 
-        <label for="addFoodName">
-            品項名稱
-        </label>
+        <label>日期</label>
 
-        <input
-            type="text"
-            id="addFoodName"
-            placeholder="例如：蘋果"
-        >
+        <input type="date"
+               id="mobileAddDate">
 
 
-        <label for="addFoodDate">
-            日期
-        </label>
+        <label>到期日</label>
 
-        <input
-            type="date"
-            id="addFoodDate"
-        >
+        <input type="date"
+               id="mobileAddExpiry">
 
 
-        <label for="addExpiryDate">
-            到期日
-        </label>
+        <div class="mobile-add-buttons">
 
-        <input
-            type="date"
-            id="addExpiryDate"
-        >
-
-
-        <div class="add-food-buttons">
-
-            <button onclick="addFoodFromAll()">
-                確認
+            <button onclick="closeMobileAddFood()">
+                取消
             </button>
 
-            <button onclick="closeAddFood()">
-                取消
+            <button onclick="saveMobileAddFood()">
+                確認
             </button>
 
         </div>
@@ -154,7 +146,8 @@
 </div>
 
 
-<script src="script.js"></script>
+<script src="mobile-script.js"></script>
 
 </body>
+
 </html>
