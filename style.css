@@ -1339,3 +1339,69 @@ body {
 
     cursor: pointer;
 }
+
+/* =========================================================
+   手機版：所有定位用按鈕透明化
+   不改位置、不改大小
+========================================================= */
+
+/* 首頁 8 個品項 */
+.mobile-home .mobile-category-button {
+    background: transparent;
+    border: none;
+}
+
+/* 首頁右上 3 個按鈕 */
+.mobile-home .mobile-control {
+    background: transparent;
+    border: none;
+}
+
+/* 8 個品項頁右上 3 個按鈕 */
+.mobile-category .mobile-category-control {
+    background: transparent;
+    border: none;
+}
+
+/* 8 個品項頁上一頁 / 下一頁 */
+.mobile-category .mobile-category-prev,
+.mobile-category .mobile-category-next {
+    background: transparent;
+    border: none;
+}
+
+/* 使用教學頁右上 3 個按鈕 */
+.mobile-help-control {
+    background: transparent;
+    border: none;
+}
+
+/* 使用教學頁上一頁 / 下一頁 */
+.mobile-help-prev,
+.mobile-help-next {
+    background: transparent;
+    border: none;
+}
+
+/* 全部品項頁右上 3 個按鈕 */
+.mobile-all-control {
+    background: transparent;
+    border: none;
+}
+
+/* 全部品項頁上一頁 / 下一頁 */
+.mobile-all-prev,
+.mobile-all-next {
+    background: transparent;
+    border: none;
+}
+
+/* =========================================================
+   手機版全部品項：＋按鈕透明
+========================================================= */
+
+.mobile-all-add {
+    background: transparent;
+    border: none;
+    color: transparent;
+}
