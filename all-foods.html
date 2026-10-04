@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>全部品項</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="mobile-all-foods">
+
+    <!-- =========================
+         背景
+    ========================== -->
+
+    <img src="../phoneimages/手機全部品項.png"
+         alt="全部品項"
+         class="mobile-all-foods-image">
+
+
+    <!-- =========================
+         右上三個按鈕
+    ========================== -->
+
+    <!-- 回首頁 -->
+    <a href="index.html"
+       class="mobile-all-control mobile-all-home">
+    </a>
+
+    <!-- 使用教學 -->
+    <a href="help.html"
+       class="mobile-all-control mobile-all-help">
+    </a>
+
+    <!-- 全部品項 -->
+    <a href="all-foods.html"
+       class="mobile-all-control mobile-all-current">
+    </a>
+
+
+    <!-- =========================
+         品項清單
+    ========================== -->
+
+    <div class="mobile-food-list"
+         id="foodList">
+
+        <!-- JavaScript 會把品項放到這裡 -->
+
+    </div>
+
+
+    <!-- =========================
+         新增品項
+    ========================== -->
+
+    <button class="mobile-all-add"
+            onclick="openMobileAddFood()">
+    
+    </button>
+
+
+    <!-- =========================
+         上一頁 / 下一頁
+    ========================== -->
+
+    <a href="help.html"
+       class="mobile-all-prev">
+    </a>
+
+    <a href="dessert.html"
+       class="mobile-all-next">
+    </a>
+
+</div>
+
+
+<!-- =========================
+     新增品項視窗
+========================== -->
+
+<div class="mobile-add-modal"
+     id="mobileAddModal">
+
+    <div class="mobile-add-box">
+
+        <h2>新增品項</h2>
+
+
+        <label>品項名稱</label>
+
+        <input type="text"
+               id="mobileAddName"
+               placeholder="輸入品項名稱">
+
+
+        <label>食物類型</label>
+
+        <select id="mobileAddCategory">
+
+            <option value="甜點">甜點</option>
+            <option value="水果">水果</option>
+            <option value="飯類">飯類</option>
+            <option value="麵類">麵類</option>
+            <option value="饅頭">饅頭</option>
+            <option value="包子">包子</option>
+            <option value="海鮮">海鮮</option>
+            <option value="蔬菜">蔬菜</option>
+
+        </select>
+
+
+        <label>日期</label>
+
+        <input type="date"
+               id="mobileAddDate">
+
+
+        <label>到期日</label>
+
+        <input type="date"
+               id="mobileAddExpiry">
+
+
+        <div class="mobile-add-buttons">
+
+            <button onclick="closeMobileAddFood()">
+                取消
+            </button>
+
+            <button onclick="saveMobileAddFood()">
+                確認
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="mobile-script.js"></script>
+
+</body>
+
+</html>

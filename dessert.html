@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>甜點</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="mobile-category">
+
+    <!-- =========================
+         手機甜點背景
+    ========================== -->
+
+    <img src="../phoneimages/手機甜點.png"
+         alt="甜點"
+         class="mobile-category-image">
+
+
+    <!-- =========================
+         右上三個按鈕
+    ========================== -->
+
+    <!-- 回首頁 -->
+    <a href="index.html"
+       class="mobile-category-control mobile-category-home">
+    </a>
+
+    <!-- 使用教學 -->
+    <a href="help.html"
+       class="mobile-category-control mobile-category-help">
+    </a>
+
+    <!-- 全部品項 -->
+    <a href="all-foods.html"
+       class="mobile-category-control mobile-category-all">
+    </a>
+
+
+    <!-- =========================
+         品項輸入
+    ========================== -->
+
+    <div class="mobile-food-form">
+
+        <label>品項名稱</label>
+
+        <input type="text"
+               id="foodName"
+               placeholder="輸入品項名稱">
+
+
+        <label>日期</label>
+
+        <input type="date"
+               id="foodDate">
+
+
+        <label>到期日</label>
+
+        <input type="date"
+               id="expiryDate">
+
+
+        <button class="mobile-confirm-button"
+                onclick="saveMobileFood('甜點')">
+            確認
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         上一頁 / 下一頁
+    ========================== -->
+
+    <a href="index.html"
+       class="mobile-category-prev">
+    </a>
+
+    <a href="fruit.html"
+       class="mobile-category-next">
+    </a>
+
+</div>
+
+<script src="mobile-script.js"></script>
+
+</body>
+
+</html>
